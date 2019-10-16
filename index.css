@@ -1,0 +1,12 @@
+.main_box > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.one_ray{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #333;
+  margin-left: 4px;
+}
