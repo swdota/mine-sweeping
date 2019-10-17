@@ -1,7 +1,7 @@
 class marked {
     constructor() {
-        this.boomNum = 16 //雷数
-        this.lineNum = 10 //棋盘行数
+        this.boomNum = 10 //雷数
+        this.lineNum = 9 //棋盘行数
     }
     //随机下标
     randomIndex(n) {
@@ -20,9 +20,13 @@ class marked {
         }
         return arr
     }
-    randomSquare01() {
+    randomSquare01(game) {
+        console.log(game, '.dddd');
+
+        this.boomNum = game.boomNum
+
         var arr = []
-        var n = this.lineNum
+        var n = game.lineNum
         for (let i = 0; i < n; i++) {
             const num = this.randomLine01(n)
             // const numList = this.markedLine(num)
@@ -76,7 +80,7 @@ class marked {
                 }
             })
         }
-        console.log(arrCope, 'arrCope');
+        // console.log(arrCope, 'arrCope');
 
         return arrCope
     }

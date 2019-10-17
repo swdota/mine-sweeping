@@ -1,12 +1,30 @@
+.head_button{
+  text-align: center;
+  margin: 20px 0;
+}
 .main_box > ul {
   padding: 0;
   margin: 0;
 }
-
+.li_center{
+  text-align: center;
+}
 .one_ray{
   display: inline-block;
   width: 30px;
   height: 30px;
   background: #333;
-  margin-left: 4px;
+  margin: 2px;
+  vertical-align: top;
+  text-align: center;
+  line-height: 30px;
+}
+.show{
+  background: #c0ead7
+}
+.boomShow{
+  background: red;
+}
+.time_num{
+  text-align: center;
 }
