@@ -80,7 +80,7 @@ class marked {
                 }
             })
         }
-        // console.log(arrCope, 'arrCope');
+        console.log(arrCope, 'arrCope');
 
         return arrCope
     }

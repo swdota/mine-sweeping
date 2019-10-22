@@ -32,7 +32,7 @@ class game {
     }
     return re
   }
-  // 绑定顶级事件
+  // 绑定点级事件
   addClick() {
     var contentDom = document.querySelector('.main_ul')
     var timeDom = document.querySelector('.time_num')
@@ -55,7 +55,7 @@ class game {
       } else if (num === '9') {
         this.gameOver()
       }
-
+      this.gamePass()
     })
     // item.addEventListener('click', this.showOff)
   }
@@ -74,10 +74,11 @@ class game {
     })
     setTimeout(() => {
       if (confirm("gameOver")) {
-        console.log('true');
+        window.location.reload()
       } else {
-        console.log('false');
+        window.location.reload()
       }
+
     }, 0)
 
     // alert('gameOver')
@@ -143,19 +144,43 @@ class game {
     }
   }
   //如果是 0 则显示周围的格子
-  showOff(e) {
-    console.log(arguments, main, 'arguments');
-    var num = e.target.getAttribute("data-boom")
-    if (num === '0') {
-      this.forShow(e.target)
-    } else if (num != '0' && num != '9') {
-      e.target.classList.add("show")
-      e.target.innerHTML = num
-    }
-    if (num === '9') {
-      this.gameOver()
+  // showOff(e) {
+  //   console.log(arguments, main, 'arguments');
+  //   var num = e.target.getAttribute("data-boom")
+  //   if (num === '0') {
+  //     this.forShow(e.target)
+  //   } else if (num != '0' && num != '9') {
+  //     e.target.classList.add("show")
+  //     e.target.innerHTML = num
+  //   }
+  //   if (num === '9') {
+  //     this.gameOver()
+  //   }
+  // }
+  // 检测是否通关
+  gamePass() {
+
+    var spanList = document.querySelectorAll('.one_ray')
+    var pass = true
+    spanList.forEach((it) => {
+      if (it.getAttribute("data-boom") != '9') {
+        if (!it.classList.contains("show")) {
+          pass = false
+        }
+      }
+    })
+    console.log(pass, 'pass');
+
+    if (pass) {
+      setTimeout(() => {
+        if (confirm("gameOver")) {
+          window.location.reload()
+        } else {
+          window.location.reload()
+        }
+      }, 0)
+      clearInterval(this.timeFun);
     }
   }
-
 
 }
